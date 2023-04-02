@@ -5,8 +5,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { collection, addDoc } from 'firebase/firestore';
 import  db  from '../lib/firebaseConfig';
-
-const inter = Inter({ subsets: ['latin'] })
+import toast from 'react-hot-toast';
 
 type FormValues = {
   teamName: string;
@@ -26,11 +25,13 @@ export default function Home() {
 
   const onSubmit = async (data: FormValues) => {
     try {
-      const docRef = await addDoc(collection(db, 'FP Collections'), data);
-      console.log('Document written with ID: ', docRef.id);
+      const docRef = await addDoc(collection(db, 'FP Collections2'), data);
+      // console.log('Document written with ID: ', docRef.id);
+      toast.success('Makasih yaa dah ngumpulin')
       setFormSuccess(true);
-    } catch (e) {
-      console.error('Error adding document: ', e);
+    } catch (e:any) {
+      toast.error('Error adding document: ', e)
+      // console.error('Error adding document: ', e);
     }
   };
   return (
