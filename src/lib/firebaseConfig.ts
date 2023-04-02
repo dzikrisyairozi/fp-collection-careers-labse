@@ -1,4 +1,7 @@
-import { initializeApp } from "firebase/app";
+import { getApps, initializeApp } from 'firebase/app';
+import firebase from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDNBqJr9FGMmwgmyHAHN_7EvSfkDP4N7k8",
@@ -10,5 +13,16 @@ const firebaseConfig = {
     measurementId: "G-KN6NK1WZCP"
   };
 
+export function initFirebase() {
+  if (!getApps().length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+}
+
 const app = initializeApp(firebaseConfig);
 
+export const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+export default db;
