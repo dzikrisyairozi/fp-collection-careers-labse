@@ -4,6 +4,7 @@ import { BiArrowBack } from 'react-icons/bi';
 import { RiUserSmileFill } from 'react-icons/ri';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Countdown from 'react-countdown';
 
 const SuccessPage = () => {
   const router = useRouter();
@@ -23,6 +24,7 @@ const SuccessPage = () => {
             </div>
             <div className="flex flex-col mt-5 text-white">
               <p>Selamat menikmati sisa waktu sebelum demo yaa...</p>
+              <Countdown date='2023-04-06T13:00:00' />
             </div>
             <div className="text-white">
               <p>
