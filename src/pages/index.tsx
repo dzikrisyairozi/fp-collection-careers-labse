@@ -27,7 +27,7 @@ export default function Home() {
 
   const onSubmit = async (data: FormValues) => {
     try {
-      const docRef = await addDoc(collection(db, 'FP Collections2'), data);
+      const docRef = await addDoc(collection(db, 'FP Collections'), data);
       // console.log('Document written with ID: ', docRef.id);
       toast.success('Makasih yaa dah ngumpulin')
       setFormSuccess(true);
